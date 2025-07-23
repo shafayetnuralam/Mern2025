@@ -8,15 +8,11 @@
 
 const express = require("express");
 const router = express.Router();
-
+const {home, register} = require("../controllers/auth-controller");
 // Route: GET /
-router.route("/").get((req, res) => {
-  res.status(200).send("Welcome MERN Series");
-});
+router.route("/").get(home);
 
 // Route: GET /register
-router.route("/register").get((req, res) => {
-  res.status(200).json({ msg: "Registration successful from router" });
-});
+router.route("/register").get(register);
 
 module.exports = router; // ✅ Correct export
